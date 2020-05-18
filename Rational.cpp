@@ -4,7 +4,6 @@ Rational::Rational(int n, int d)
 {
 	numerator = n;
 	denominator = d;
-	//reduction();
 }
 
 Rational Rational::addition(const Rational& src)
@@ -25,7 +24,6 @@ Rational Rational::subtraction(const Rational& src)
 	temp.denominator = denominator * src.denominator;
 	temp.reduction();
 	return temp;
-
 }
 
 Rational Rational::multiplication(const Rational& src)
@@ -52,16 +50,13 @@ void Rational::reduction()
 	int s_div=0;
 
 	if (numerator < denominator)
-	{
-		
+	{	
 		biggest = denominator;
 	}
 	else
 	{
 		biggest = numerator;
 	}
-
-	// smaller = numerator >denominator ?denominator: numerator;
 
 	for (int i = 2; i <= biggest; ++i)
 	{
@@ -74,8 +69,7 @@ void Rational::reduction()
 		{
 			numerator = numerator / s_div;
 			denominator = denominator / s_div;
-		}
-	
+		}	
 
 }
 
@@ -84,7 +78,6 @@ float Rational::b_multipiaction(const Rational& src)
 	float a = static_cast<float> (src.numerator);
 	float b = static_cast<float> (src.denominator);
 	float c=a/b;
-
 	return c;
 }
 
@@ -98,7 +91,6 @@ void Rational::printRational()
 	{
 		std::cout << numerator << "/" << denominator;
 	}
-
 }
 
 void Rational::printRationalFloat()
@@ -119,7 +111,6 @@ void Rational::printRationalFloat()
 
 Rational Rational::operator+(const Rational& src)
 {
-
 	Rational temp;
 	temp.numerator = src.numerator * denominator;
 	temp.numerator = temp.numerator + src.denominator * numerator;
@@ -153,8 +144,6 @@ bool Rational::operator==(const Rational& src)
 	{
 		return true;
 	}
-
-
 	return false;
 }
 
@@ -168,8 +157,6 @@ bool Rational::operator>(const Rational& src)
 	{
 		return true;
 	}
-
-	
 	return false;
 }
 
@@ -183,8 +170,6 @@ bool Rational::operator<(const Rational& src)
 	{
 		return true;
 	}
-
-
 	return false;
 }
 
@@ -198,8 +183,6 @@ bool Rational::operator>=(const Rational& src)
 	{
 		return true;
 	}
-
-
 	return false;
 }
 
@@ -213,7 +196,5 @@ bool Rational::operator<=(const Rational& src)
 	{
 		return true;
 	}
-
-
 	return false;
 }
